@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -29,5 +34,136 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.navbar-bg {
+  background: rgba(13, 13, 13, 0.2);
+}
+
+.cover {
+  background: rgba(13, 13, 13, 0.4);
+  transition: 0.5s;
+}
+
+.feature-container:hover .cover {
+  background: rgba(13, 13, 13, 0.7);
+}
+
+.home-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(207, 172, 153, 1) 0%,
+    rgba(174, 132, 113, 1) 50%,
+    rgba(150, 115, 95, 1) 100%
+  );
+}
+
+.home-inner-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 1) 0%,
+    rgba(13, 13, 13, 1) 47%,
+    rgba(13, 13, 13, 0.38) 100%
+  );
+}
+
+.image-container {
+  width: max-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container::before,
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.image-container::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(13, 13, 13, 1),
+    rgba(13, 13, 13, 0)
+  );
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Width of the scrollbar */
+}
+
+.visibleScrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.home-bg {
+  background-color: #1a1a1a; /* Example background color */
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  scroll-snap-type: y mandatory;
+}
+
+.scrollbar {
+  position: absolute;
+  top: 50%; /* Start in the middle of the container */
+  transform: translateY(-50%); /* Center it vertically */
+  right: 0;
+  width: 5px; /* Thin scrollbar */
+  background: #888; /* Scrollbar color */
+  border-radius: 10px;
+  transition: top 0.5s ease-in-out;
+  cursor: default;
+  height: 25%; /* Example height for 2 sections */
+}
+
+.scrollbar:hover {
+  background: #555; /* Scrollbar color on hover */
+}
+
+.coverDiv {
+  background-color: transparent;
+  color: transparent;
+}
+
+.coverDiv:hover {
+  background: rgba(13, 13, 13, 0.7);
+  color: white;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/homePicture.png"); /* Adjust the path as necessary */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+@media (max-width: 450px) {
+  .height {
+    height: 700px !important;
+  }
+  .heightImgBg {
+    height: 450px !important;
+  }
+  .heightProjects {
+    min-height: none;
+    height: 730px !important;
   }
 }
